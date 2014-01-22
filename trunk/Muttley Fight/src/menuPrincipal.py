@@ -73,13 +73,14 @@ def Creditos():
 def Cenarios():
     
     fundoCenarios = pygame.image.load("imagens/fundos/fundoPreto.png").convert()
-    setaDireita = pygame.image.load("imagens/botoes/seta_prox.png").convert()
-    setaEsquerda = pygame.image.load("imagens/botoes/seta_ant.png").convert()
     botaoIniciar = pygame.image.load("imagens/botoes/iniciar.png").convert()
     botaoVoltar = pygame.image.load("imagens/botoes/voltar.png").convert()
     
-    posSetaDireita = (700,250)
-    posSetaEsquerda = (50,250)
+    img1 = pygame.image.load("imagens/20140116_103314.jpg").convert()
+    img2 = pygame.image.load("imagens/20140116_103338.jpg").convert()
+    img3 = pygame.image.load("imagens/fundoChesf.jpg").convert() 
+     
+        
     posBotaoIniciar = (570,505)
     posBotaoVoltar = (30,505)
     
@@ -91,46 +92,17 @@ def Cenarios():
         xy = pygame.mouse.get_pos()
         
         screen.blit(fundoCenarios,(0,0))
-        screen.blit(setaDireita, posSetaDireita)
-        screen.blit(setaEsquerda, posSetaEsquerda)
         screen.blit(botaoIniciar, posBotaoIniciar)
         screen.blit(botaoVoltar, posBotaoVoltar)
-        
-        
+        screen.blit(img1,(30,70))
+        screen.blit(img2,(300,250))
+        screen.blit(img3,(570,70))
+
         if verificaMouse(botaoVoltar,posBotaoVoltar,xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                Creditos()
-
-        pygame.display.flip()
-
-def NovoJogo2():
-    
-    fundoNovoJogo = pygame.image.load("imagens/fundos/fundoPreto.png").convert()
-    botaoVoltar = pygame.image.load("imagens/Botoes/voltar.png").convert()
-    botaoAvancar = pygame.image.load("imagens/Botoes/avancar.png").convert()
-    nomePersonagem = pygame.image.load("imagens/personagens.png").convert()
-    jogador1 = pygame.image.load("imagens/jogador1.png").convert()
-    jogador2 = pygame.image.load("imagens/jogador2.png").convert()
-    
-    while True:
-    
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                exit()
-        
-        xy = pygame.mouse.get_pos() #Recupera a posicao do mouse
-
-        screen.blit(fundoNovoJogo,(0,0))
-        screen.blit(botaoVoltar,(30,505))
-        screen.blit(botaoAvancar,(570,505))
-        screen.blit(nomePersonagem,(270,0))
-        screen.blit(jogador2,(300,105))
+                MenuInicial()
                 
-        if verificaMouse(botaoAvancar,(570,505),xy) == True:
-            if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                Cenarios()
-       
-        pygame.display.flip()
+        pygame.display.flip
 
 def NovoJogo():
     
@@ -140,7 +112,8 @@ def NovoJogo():
     botaoAvancar = pygame.image.load("imagens/Botoes/avancar.png").convert()
     nomePersonagem = pygame.image.load("imagens/personagens.png").convert()
     jogador1 = pygame.image.load("imagens/jogador1.png").convert()
-    
+        
+    cont = 0
     
     while True:
     
@@ -155,16 +128,24 @@ def NovoJogo():
         screen.blit(botaoAvancar,(570,505))
         screen.blit(nomePersonagem,(270,0))
         screen.blit(jogador1,(300,105))
+   
+##### MUDAR ALGO NO DISPLAY SEM MUDAR O TODO: USAR CONTADOR, CHAMANDO UMA FUNCAO COM O BLIT ####   
         
-        
+        if cont == 0:
+            screen.blit(botaoVoltar,(30,505))
+            TROCAR VOLTAR POR PERSONAGEM!!!
+        elif cont == 1:
+            screen.blit(botaoVoltar,(300,505))  
         
             
         if verificaMouse(botaoVoltar,(30,505),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 MenuInicial()
+                               
+            
         elif verificaMouse(botaoAvancar,(570,505),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                NovoJogo2()
+                Cenarios()
       
         pygame.display.flip()
 
