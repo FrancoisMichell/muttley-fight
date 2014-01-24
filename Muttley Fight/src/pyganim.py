@@ -13,7 +13,7 @@
 #
 
 
-# TODO: Feature idea: if the same image file is specified, re-use the Surface object. (Make this optional though.)
+# hue hue hue if the same image file is specified, re-use the Surface object. (Make this optional though.)
 
 import pygame, time
 
