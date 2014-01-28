@@ -106,12 +106,10 @@ def Cenarios():
             if verificaMouse(botaoSeguinte,(700,250),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     cont += 1
-                    print cont
                     sleep(0.5)
             elif verificaMouse(botaoAnterior,(50,250),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     cont = 2
-                    print cont
                     sleep(0.5)
         else:
             if cont == 1:
@@ -119,12 +117,10 @@ def Cenarios():
                 if verificaMouse(botaoSeguinte,(700,250),xy) == True:
                     if event.type == MOUSEBUTTONDOWN and event.button == 1:
                         cont += 1
-                        print cont
                         sleep(0.5)
                 if verificaMouse(botaoAnterior,(50,250),xy) == True:
                     if event.type == MOUSEBUTTONDOWN and event.button == 1:
                         cont -= 1
-                        print cont
                         sleep(0.5)
             else:
                 if cont == 2:
@@ -132,18 +128,16 @@ def Cenarios():
                     if verificaMouse(botaoSeguinte,(700,250),xy) == True:
                         if event.type == MOUSEBUTTONDOWN and event.button == 1:
                             cont = 0 
-                            print cont
                             sleep(0.5)
                     if verificaMouse(botaoAnterior,(50,250),xy) == True:
                         if event.type == MOUSEBUTTONDOWN and event.button == 1:
                             cont -= 1
-                            print cont
                             sleep(0.5)
         
         if verificaMouse(botaoVoltar,(30,505),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 NovoJogo()
-                sleep(0.5)
+                sleep(0.2)
                 
         pygame.display.flip()
 
