@@ -4,7 +4,8 @@ import pygame.mixer #biblioteca necessária para usar os comandos de som
 
 #Para Sons a serem inseridos no jogo/Comandos para inicar e parar o som/Configurar volume do som:
 
-Som = pygame.mixer.Sound("Arquivo")
+pygame.mixer.init()
+Som = pygame.mixer.Sound("Arquivo") #usar arquivos .wav
 
 Som.play()                          
 
