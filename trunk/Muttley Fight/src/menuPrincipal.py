@@ -3,7 +3,7 @@ from pygame.locals import *
 from sys import exit
 from time import sleep
 from FixTk import ver
-
+import animacao
 largura, altura = 800,600
 
 pygame.init()
@@ -136,7 +136,10 @@ def Cenarios():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 NovoJogo()
                 sleep(0.1)
-                
+        if verificaMouse(botaoIniciar, (651,525),xy) == True:
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                animacao.player1 = 'mopa'
+                animacao.jogo()
         pygame.display.flip()
 
 def NovoJogo():
