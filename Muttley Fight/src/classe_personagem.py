@@ -3,6 +3,7 @@
 import pygame
 
 class Personagem:
+    
     def __init__(self,nome, pos_x, pos_y,largura):
         self.vida = 100
         self.sprites={}
@@ -11,26 +12,34 @@ class Personagem:
         self.largura = largura
         self.nome = nome
 
-    def rectIdle(self,nome):
-        if self.nome == 'pastor':
+    def rectIdle(self):
+        
+        if self.nome == 'vitor':
             self.rect = pygame.Rect(self.pos_x, self.pos_y, 45, 100)
+        
         elif self.nome == 'teste':
             self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
 
     def rectChute(self):
-        if self.nome == 'pastor':
+        
+        if self.nome == 'vitor':
             chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return chute
+        
         if self.nome == 'teste':
             chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return chute
+        
     def rectSoco(self):
-        if self.nome == 'pastor':
+        
+        if self.nome == 'vitor':
             soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return soco
+        
         if self.nome == 'teste':
             soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return soco
+        
     def getx(self):
         return self.pos_x
 
