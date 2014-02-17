@@ -17,16 +17,58 @@ class Personagem:
         if self.nome == 'vitor':
             self.rect = pygame.Rect(self.pos_x, self.pos_y, 45, 100)
         
-        elif self.nome == 'teste':
+        elif self.nome == 'Matheus':
             self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
-
+       
+        elif self.nome == 'Muttley':
+            self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
+            
+        elif self.nome == 'Igor':
+            self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
+            
+        elif self.nome == 'Alan':
+            self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
+            
+        elif self.nome == 'Lucas':
+            self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
+            
+        elif self.nome == 'Tulio':
+            self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
+            
+        elif self.nome == 'François':
+            self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
+            
     def rectChute(self):
         
         if self.nome == 'vitor':
             chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return chute
         
-        if self.nome == 'teste':
+        if self.nome == 'Matheus':
+            chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return chute
+        
+        if self.nome == 'Muttley':
+            chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return chute
+        
+        if self.nome == 'Igor':
+            chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return chute
+        
+        if self.nome == 'Alan':
+            chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return chute
+        
+        if self.nome == 'Lucas':
+            chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return chute
+        
+        if self.nome == 'Tulio':
+            chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return chute
+        
+        if self.nome == 'François':
             chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return chute
         
@@ -36,7 +78,31 @@ class Personagem:
             soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return soco
         
-        if self.nome == 'teste':
+        if self.nome == 'Matheus':
+            soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return soco
+        
+        if self.nome == 'Muttley':
+            soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return soco
+        
+        if self.nome == 'Igor':
+            soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return soco
+        
+        if self.nome == 'Alan':
+            soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return soco
+        
+        if self.nome == 'Lucas':
+            soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return soco
+        
+        if self.nome == 'Tulio':
+            soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            return soco
+        
+        if self.nome == 'François':
             soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return soco
         
