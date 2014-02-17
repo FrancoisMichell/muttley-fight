@@ -54,8 +54,6 @@ def Creditos():
             if event.type == QUIT:
                 exit()
     
-    
-        
         xy = pygame.mouse.get_pos() #Recupera a posicao do mouse
 
         screen.blit(fundoCreditos,(0,0))
@@ -138,26 +136,42 @@ def Cenarios():
                 sleep(0.1)
         if verificaMouse(botaoIniciar, (651,525),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                animacao.player1 = 'mopa'
+                if cont == 0:
+                    animacao.fundo = pygame.image.load('imagens/fundos/mesa2.jpg').convert_alpha()
+                elif cont == 1:
+                    animacao.fundo = pygame.image.load('imagens/fundos/mesa1.jpg').convert_alpha()
+                elif cont == 2:
+                    animacao.fundo = pygame.image.load('imagens/fundos/fundoChesf.jpg').convert_alpha()
+                
                 animacao.jogo()
         pygame.display.flip()
 
 def NovoJogo():
     
-    
-    
     botaoAvancar = pygame.image.load("imagens/Botoes/avancar.png").convert_alpha()
+    
     jogador1 = pygame.image.load("imagens/fundos/jogador1.png").convert_alpha()
     jogador2 = pygame.image.load("imagens/fundos/jogador2.png").convert_alpha()
+    
     janelaVermelha = pygame.image.load('imagens/molduraVermelha.png').convert_alpha()
     janelaBranca = pygame.image.load('imagens/molduraAmarela.png').convert_alpha()
+    
+    matheus = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
+    igor = pygame.image.load('imagens/imagensPersonagens/igor.png')
+    muttley = pygame.image.load('imagens/imagensPersonagens/muttley.png')
+    lucas = pygame.image.load('imagens/imagensPersonagens/lucas.png')
+    tulio = pygame.image.load('imagens/imagensPersonagens/tulio.png')
+    alan = pygame.image.load('imagens/imagensPersonagens/alan.png')
+    francois = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
+    pastor = pygame.image.load('imagens/imagensPersonagens/pastor.jpg')
+    
     cont = 0
     
-    linha = [130,280,430,580]
-    coluna = [200,350]
+    coluna = [130,280,430,580]
+    linha = [200,350]
     
     coordenadas = []
-
+    selecionado = False
              
     while True:
     
@@ -166,41 +180,147 @@ def NovoJogo():
                 exit()
         
         xy = pygame.mouse.get_pos() #Recupera a posicao do mouse
-
+        
         screen.blit(fundo,(0,0))
+    
+        janelas = {}
+        
+        
+        def imagensPersonagens():
+            screen.blit(matheus,(143,217))
+            screen.blit(lucas,(143,367))
+            screen.blit(muttley,(293,217))
+            screen.blit(pastor,(293,367))
+            screen.blit(francois,(443,217))
+            screen.blit(alan,(443,367))
+            screen.blit(igor,(593,217))
+            screen.blit(tulio,(593,367))
+        
         def quadroVermelho():
-            for i in linha:
-                for j in coluna:
+            k = 0
+            for i in coluna:
+                for j in linha:
+                    k = k+1
                     screen.blit(janelaVermelha,(i,j))
                     coordenadas.append((i,j))
-            
+                    janelas[k] = (i,j)
+                    
+        
         if cont == 0:
             screen.blit(jogador1,(0,0))
             screen.blit(botaoVoltar,(30,505))
-            screen.blit(botaoAvancar,(570,505))
             quadroVermelho()
+            imagensPersonagens()
+    
+            if verificaMouse(janelaVermelha, janelas[1], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Matheus'
+                    cont += 1
+                    sleep(0.1)
+                    
+            if verificaMouse(janelaVermelha, janelas[2], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Lucas'
+                    cont += 1
+                    sleep(0.1)
+                    
+            if verificaMouse(janelaVermelha, janelas[3], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Muttley'
+                    cont += 1
+                    sleep(0.1)
+                    
+            if verificaMouse(janelaVermelha, janelas[4], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Vitor'
+                    cont += 1
+                    sleep(0.1)
+                    
+            if verificaMouse(janelaVermelha, janelas[5], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Francois'
+                    cont += 1
+                    sleep(0.1)
+                    
+            if verificaMouse(janelaVermelha, janelas[6], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Alan'
+                    cont += 1
+                    sleep(0.1)
+                    
+            if verificaMouse(janelaVermelha, janelas[7], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Igor'
+                    cont += 1
+                    sleep(0.1)
+                    
+            if verificaMouse(janelaVermelha, janelas[8], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player1 = 'Tulio'
+                    cont += 1
+                    sleep(0.1)
+        
             if verificaMouse(botaoVoltar,(30,505),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     MenuInicial()
-            elif verificaMouse(botaoAvancar,(570,505),xy) == True:
-                if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                    cont += 1
-                    print cont
-                    sleep(0.1)
        
         elif cont == 1:
+            
             screen.blit(jogador2,(0,0))
             screen.blit(botaoVoltar,(30,505))
             screen.blit(botaoAvancar,(570,505))
             quadroVermelho()
+            imagensPersonagens()
+            
+            if verificaMouse(janelaVermelha, janelas[1], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'Matheus'
+                    selecionado = True
+                    
+            if verificaMouse(janelaVermelha, janelas[2], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'Lucas'
+                    selecionado = True
+                    
+            if verificaMouse(janelaVermelha, janelas[3], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'Muttley'
+                    selecionado = True
+                    
+            if verificaMouse(janelaVermelha, janelas[4], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'vitor'
+                    selecionado = True
+                    
+            if verificaMouse(janelaVermelha, janelas[5], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'Francois'
+                    selecionado = True
+
+            if verificaMouse(janelaVermelha, janelas[6], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'Alan'
+                    selecionado = True
+                    
+            if verificaMouse(janelaVermelha, janelas[7], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'Igor'
+                    selecionado = True
+                
+            if verificaMouse(janelaVermelha, janelas[8], xy):
+                if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    animacao.player2 = 'Tulio'
+                    selecionado = True
+                    
             if verificaMouse(botaoVoltar,(30,505),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     cont -= 1
-                    print cont
                     sleep(0.1)
+                    
             elif verificaMouse(botaoAvancar,(570,505),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                    Cenarios()
+                    if selecionado == True:
+                        Cenarios()
                     
         pygame.display.flip()
 
