@@ -14,7 +14,7 @@ class Personagem:
 
     def rectIdle(self):
         
-        if self.nome == 'vitor':
+        if self.nome == 'Vitor':
             self.rect = pygame.Rect(self.pos_x, self.pos_y, 45, 100)
         
         elif self.nome == 'Matheus':
@@ -40,7 +40,7 @@ class Personagem:
             
     def rectChute(self):
         
-        if self.nome == 'vitor':
+        if self.nome == 'Vitor':
             chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return chute
         
@@ -74,7 +74,7 @@ class Personagem:
         
     def rectSoco(self):
         
-        if self.nome == 'vitor':
+        if self.nome == 'Vitor':
             soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
             return soco
         

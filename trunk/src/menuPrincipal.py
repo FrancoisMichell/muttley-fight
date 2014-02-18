@@ -275,52 +275,47 @@ def NovoJogo():
             if verificaMouse(janelaVermelha, janelas[1], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'Matheus'
-                    selecionado = True
+                    Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[2], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'Lucas'
-                    selecionado = True
+                    Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[3], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'Muttley'
-                    selecionado = True
+                    Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[4], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'vitor'
-                    selecionado = True
+                    Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[5], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'Francois'
-                    selecionado = True
+                    Cenarios()
 
             if verificaMouse(janelaVermelha, janelas[6], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'Alan'
-                    selecionado = True
+                    Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[7], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'Igor'
-                    selecionado = True
+                    Cenarios()
                 
             if verificaMouse(janelaVermelha, janelas[8], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     animacao.player2 = 'Tulio'
-                    selecionado = True
+                    Cenarios()
                     
             if verificaMouse(botaoVoltar,(30,505),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     cont -= 1
                     sleep(0.1)
-                    
-            elif verificaMouse(botaoAvancar,(570,505),xy) == True:
-                if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                    if selecionado == True:
-                        Cenarios()
                     
         pygame.display.flip()
 
@@ -365,3 +360,6 @@ def MenuInicial():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 exit()  
         pygame.display.flip()
+        
+        
+        
