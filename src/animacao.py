@@ -6,6 +6,7 @@ import time
 import pyganim
 import classe_personagem
 from time import sleep
+import menuPrincipal
 
 player1 = ""
 player2 = ""
@@ -20,66 +21,70 @@ def jogo():
     
     #imagens player 1:
     
-    imagens = 'imagens' + player1
-    print imagens
-    paradoP1 = pyganim.PygAnimation([('imagensVitor/andandoVitor/1.png',0.1)])
+    idleP1 = pyganim.PygAnimation([('imagens%s/andandoVitor/1.png'%(player1),0.1)])
     
     defesaP1 = pyganim.PygAnimation([('defesaMatheus.png',0.1)])
     
-    chuteP1 = pyganim.PygAnimation([('imagensVitor/chute/chute1.png',0.1),
-                                  ('imagensVitor/chute/chute2.png',0.1),
-                                  ('imagensVitor/chute/chute3.png',0.1),
-                                  ('imagensVitor/chute/chute4.png',0.1),
-                                  ('imagensVitor/chute/chute5.png',0.1),
-                                  ('imagensVitor/chute/chute6.png',0.1)], loop = False)
+    chuteP1 = pyganim.PygAnimation([('imagens%s/chute/chute1.png'%(player1),0.1),
+                                  ('imagens%s/chute/chute2.png'%(player1),0.1),
+                                  ('imagens%s/chute/chute3.png'%(player1),0.1),
+                                  ('imagens%s/chute/chute4.png'%(player1),0.1),
+                                  ('imagens%s/chute/chute5.png'%(player1),0.1),
+                                  ('imagens%s/chute/chute6.png'%(player1),0.1)], loop = False)
     
-    socoP1 = pyganim.PygAnimation([('imagensVitor/soco/1.png',0.1),
-                                  ('imagensVitor/soco/2.png',0.1),
-                                  ('imagensVitor/soco/3.png',0.1),
-                                  ('imagensVitor/soco/2.png',0.1),
-                                  ('imagensVitor/soco/1.png',0.1)], loop = False)
+    socoP1 = pyganim.PygAnimation([('imagens%s/soco/1.png'%(player1),0.1),
+                                  ('imagens%s/soco/2.png'%(player1),0.1),
+                                  ('imagens%s/soco/3.png'%(player1),0.1),
+                                  ('imagens%s/soco/2.png'%(player1),0.1),
+                                  ('imagens%s/soco/1.png'%(player1),0.1)], loop = False)
     
-    EsquerdaP1 = pyganim.PygAnimation([('imagensVitor/andandoVitor/6.png',0.12),
-                                       ('imagensVitor/andandoVitor/5.png',0.12),
-                                       ('imagensVitor/andandoVitor/4.png',0.12),
-                                       ('imagensVitor/andandoVitor/3.png',0.12),
-                                       ('imagensVitor/andandoVitor/2.png',0.12),
-                                       ('imagensVitor/andandoVitor/1.png',0.12)])
+    EsquerdaP1 = pyganim.PygAnimation([('imagens%s/andandoVitor/6.png'%(player1),0.12),
+                                       ('imagens%s/andandoVitor/5.png'%(player1),0.12),
+                                       ('imagens%s/andandoVitor/4.png'%(player1),0.12),
+                                       ('imagens%s/andandoVitor/3.png'%(player1),0.12),
+                                       ('imagens%s/andandoVitor/2.png'%(player1),0.12),
+                                       ('imagens%s/andandoVitor/1.png'%(player1),0.12)])
     
-    direitaP1 = pyganim.PygAnimation([('imagensVitor/andandoVitor/1.png',0.12),
-                                      ('imagensVitor/andandoVitor/2.png',0.12),
-                                      ('imagensVitor/andandoVitor/3.png',0.12),
-                                      ('imagensVitor/andandoVitor/4.png',0.12),
-                                      ('imagensVitor/andandoVitor/5.png',0.12),
-                                      ('imagensVitor/andandoVitor/6.png',0.12)])
+    direitaP1 = pyganim.PygAnimation([('imagens%s/andandoVitor/1.png'%(player1),0.12),
+                                      ('imagens%s/andandoVitor/2.png'%(player1),0.12),
+                                      ('imagens%s/andandoVitor/3.png'%(player1),0.12),
+                                      ('imagens%s/andandoVitor/4.png'%(player1),0.12),
+                                      ('imagens%s/andandoVitor/5.png'%(player1),0.12),
+                                      ('imagens%s/andandoVitor/6.png'%(player1),0.12)])
     
     #imagens jogador 2
     
-    paradoP2 = pyganim.PygAnimation([('imagensMatheus/andando/1.png',0.1)])
+    idleP2 = pyganim.PygAnimation([('imagens%s/idle/1.png'%(player2),0.1),
+                                      ('imagens%s/idle/2.png'%(player2),0.1),
+                                      ('imagens%s/idle/3.png'%(player2),0.1),
+                                      ('imagens%s/idle/4.png'%(player2),0.1),
+                                      ('imagens%s/idle/5.png'%(player2),0.1),
+                                      ('imagens%s/idle/6.png'%(player2),0.1),
+                                      ('imagens%s/idle/7.png'%(player2),0.1)])
     
     defesaP2 = pyganim.PygAnimation([('def.png',0.1)])
     
-    chuteP2 = pyganim.PygAnimation([('imagensMatheus/chute/1.png',0.1),
-                                    ('imagensMatheus/chute/2.png',0.1),
-                                    ('imagensMatheus/chute/3.png',0.1),
-                                    ('imagensMatheus/chute/2.png',0.1),
-                                    ('imagensMatheus/chute/1.png',0.1)], loop = False)
+    chuteP2 = pyganim.PygAnimation([('imagens%s/chute/1.png'%(player2),0.1),
+                                    ('imagens%s/chute/2.png'%(player2),0.1),
+                                    ('imagens%s/chute/3.png'%(player2),0.1),
+                                    ('imagens%s/chute/2.png'%(player2),0.1),
+                                    ('imagens%s/chute/1.png'%(player2),0.1)], loop = False)
     
-    socoP2 = pyganim.PygAnimation([('imagensMatheus/soco/1.png',0.1),
-                                  ('imagensMatheus/soco/2.png',0.1),
-                                  ('imagensMatheus/soco/3.png',0.1),
-                                  ('imagensMatheus/soco/2.png',0.1),
-                                  ('imagensMatheus/soco/1.png',0.1)], loop = False)
+    socoP2 = pyganim.PygAnimation([('imagens%s/soco/1.png'%(player2),0.1),
+                                  ('imagens%s/soco/2.png'%(player2),0.1),
+                                  ('imagens%s/soco/3.png'%(player2),0.1),
+                                  ('imagens%s/soco/2.png'%(player2),0.1),
+                                  ('imagens%s/soco/1.png'%(player2),0.1)], loop = False)
     
-    esquerdaP2 = pyganim.PygAnimation([('imagensMatheus/andando/1.png',0.12),
-                                       ('imagensMatheus/andando/2.png',0.12),
-                                       ('imagensMatheus/andando/3.png',0.12),
-                                       ('imagensMatheus/andando/4.png',0.12)])
+    esquerdaP2 = pyganim.PygAnimation([('imagens%s/andando/1.png'%(player2),0.12),
+                                       ('imagens%s/andando/2.png'%(player2),0.12),
+                                       ('imagens%s/andando/3.png'%(player2),0.12),
+                                       ('imagens%s/andando/4.png'%(player2),0.12)])
     
-    direitaP2 = pyganim.PygAnimation([('imagensmatheus/andando/4.png',0.12),
-                                      ('imagensMatheus/andando/3.png',0.12),
-                                      ('imagensMatheus/andando/2.png',0.12),
-                                      ('imagensMatheus/andando/1.png',0.12)])
+    direitaP2 = pyganim.PygAnimation([('imagens%s/andando/4.png'%(player2),0.12),
+                                      ('imagens%s/andando/3.png'%(player2),0.12),
+                                      ('imagens%s/andando/2.png'%(player2),0.12),
+                                      ('imagens%s/andando/1.png'%(player2),0.12)])
     
     from classe_personagem import Personagem
     
@@ -96,7 +101,7 @@ def jogo():
     defesa1 = False
     soco1 = False
     
-    paradoP1.play()
+    idleP1.play()
     #===============================================================================
     # CRIANDO PERSONAGEM 2
     #===============================================================================
@@ -110,22 +115,36 @@ def jogo():
     defesa2 = False
     soco2 = False
     
-    paradoP2.play()
-            
-    while True:
+    idleP2.play()
+              
+    sair = False        
+
+    while sair != True:
         
         #BLITANDO OS ELEMENTOS NO BUFF
     
         tela.blit(fundo, (0,0))
         
-    #===============================================================================
-    # BLITAR IMAGENS PLAYER 1
-    #===============================================================================
+        #=======================================================================
+        # BARRA DE HP
+        #=======================================================================
+        
+        hp = pygame.image.load("imagens/life.png")
+        
+        for i in range(jogador.vida/2):
+            tela.blit(hp,((20+i*5),100))
+        
+        for i in range(jogador2.vida/2):
+            tela.blit(hp,((780-i*5),100))    
+            
+        #===============================================================================
+        # BLITAR IMAGENS PLAYER 1
+        #===============================================================================
         if(chuteP1._propGetElapsed()==0 and socoP1._propGetElapsed() == 0):
             
             EsquerdaP1.blit(tela, (jogador.getx(),jogador.gety()))
             direitaP1.blit(tela, (jogador.getx(),jogador.gety()))
-            paradoP1.blit(tela, (jogador.getx(),jogador.gety()))
+            idleP1.blit(tela, (jogador.getx(),jogador.gety()))
             defesaP1.blit(tela, (jogador.getx(),jogador.gety()))
         
         chuteP1.blit(tela,(x,y))
@@ -137,7 +156,7 @@ def jogo():
             
             esquerdaP2.blit(tela, (jogador2.getx(),jogador2.gety()))
             direitaP2.blit(tela, (jogador2.getx(),jogador2.gety()))
-            paradoP2.blit(tela, (jogador2.getx(),jogador2.gety()))
+            idleP2.blit(tela, (jogador2.getx(),jogador2.gety()))
             defesaP2.blit(tela, (jogador2.getx(),jogador2.gety()))
         
         chuteP2.blit(tela,(jogador2.getx(),jogador2.gety()))
@@ -154,30 +173,30 @@ def jogo():
                 # PLAYER 1
                 if event.key == K_u:
                     chute1 = True
-                    paradoP1.stop()
+                    idleP1.stop()
                     chuteP1.play()
                     jogador.rectChute() #RECUPERA A AREA DE COLISAO DO PERSONAGEM
-                    paradoP1.play()
+                    idleP1.play()
                 
                 if event.key == K_i:
                     soco1 = True
-                    paradoP1.stop()
+                    idleP1.stop()
                     socoP1.play()
-                    paradoP1.play()
+                    idleP1.play()
                 
                 #PLAYER 2
                 if event.key == K_c:
                     chute2 = True
-                    paradoP2.stop()
+                    idleP2.stop()
                     chuteP2.play()
                     jogador2.rectChute() #RECUPERA A AREA DE COLISAO DO PERSONAGEM
-                    paradoP2.play()
+                    idleP2.play()
                 
                 if event.key == K_v:
                     soco2 = True
-                    paradoP2.stop()
+                    idleP2.stop()
                     socoP2.play()
-                    paradoP2.play()        
+                    idleP2.play()        
               
             #SE SOLTAR A TECLA     
             if event.type == KEYUP:
@@ -186,44 +205,44 @@ def jogo():
                 if event.key == K_o:
                     defesaP1.stop()
                     defesa1 = False
-                    paradoP1.play()
+                    idleP1.play()
                 
                 if event.key == K_LEFT:
                     EsquerdaP1.stop()
                     esquerda1 = False
-                    paradoP1.play()
+                    idleP1.play()
                     
                 if event.key == K_RIGHT:
                     direitaP1.stop()
                     direita1 = False
-                    paradoP1.play()
+                    idleP1.play()
                 
                 #player 2
                 
                 if event.key == K_b:
                     defesaP2.stop()
                     defesa2 = False
-                    paradoP2.play()
+                    idleP2.play()
                 
                 if event.key == K_a:
                     esquerdaP2.stop()
                     esquerda2 = False
-                    paradoP2.play()
+                    idleP2.play()
                     
                 if event.key == K_d:
                     direitaP2.stop()
                     direita2 = False
-                    paradoP2.play()
+                    idleP2.play()
     
         teclaPressionada = pygame.key.get_pressed()
         # PLAYER 1
         if teclaPressionada[K_o]:
             defesa1 = True
-            paradoP1.stop()
+            idleP1.stop()
             defesaP1.play()
         
         if teclaPressionada[K_LEFT]:
-            paradoP1.stop()
+            idleP1.stop()
             esquerda1 = True
             EsquerdaP1.play()
             if defesa1 == False and chuteP1._propGetElapsed() == 0 and socoP1._propGetElapsed() == 0:
@@ -233,7 +252,7 @@ def jogo():
             
         if teclaPressionada[K_RIGHT]:
             direita = True
-            paradoP1.stop()
+            idleP1.stop()
             direitaP1.play()
             if defesa1 == False and chuteP1._propGetElapsed() == 0 and socoP1._propGetElapsed() == 0:
                 if x <= 700:
@@ -244,11 +263,11 @@ def jogo():
             
         if teclaPressionada[K_b]:
             defesa2 = True
-            paradoP2.stop()
+            idleP2.stop()
             defesaP2.play()
         
         if teclaPressionada[K_a]:
-            paradoP2.stop()
+            idleP2.stop()
             esquerdaP2.play()
             if defesa2 == False and chuteP2._propGetElapsed() == 0 and socoP2._propGetElapsed() == 0:
                 if _x > 0 :
@@ -256,7 +275,7 @@ def jogo():
             jogador2.setx(_x)
             
         if teclaPressionada[K_d]:
-            paradoP2.stop()
+            idleP2.stop()
             direitaP2.play()
             if defesa2 == False and chuteP2._propGetElapsed() == 0 and socoP2._propGetElapsed() == 0:
                 if _x <= 700:
@@ -270,7 +289,7 @@ def jogo():
         if direita1 == True and esquerda1 == True: #N�O DEIXA O BONECO IR A DIREITA E ESQUERDA AO MESMO TEMPO
             direitaP1.stop()
             EsquerdaP1.stop()
-            paradoP1.play()
+            idleP1.play()
     
         if esquerda1 == True and chute1 == True: #NAO DEIXA O BONECO CHUTAR E IR A ESQUERDA AO MESMO TEMPO
             EsquerdaP1.stop()
@@ -286,7 +305,7 @@ def jogo():
         if direita2 == True and esquerda2 == True: #N�O DEIXA O BONECO IR A DIREITA E ESQUERDA AO MESMO TEMPO
             direitaP2.stop()
             esquerdaP2.stop()
-            paradoP2.play()
+            idleP2.play()
     
         if esquerda2 == True and chute2 == True: #NAO DEIXA O BONECO CHUTAR E IR A ESQUERDA AO MESMO TEMPO
             esquerdaP2.stop()
@@ -309,7 +328,7 @@ def jogo():
             else:
                 jogador2.perdeVida(2)
             print jogador2.vida
-            paradoP1.play()
+            idleP1.play()
             
         if jogador.rectChute() != jogador2.rect and chute1: #SE NAO OCORRER COLISAO DO CHUTE
             chute1 = False
@@ -319,7 +338,7 @@ def jogo():
                 jogador2.perdeVida(1)
             else:
                 jogador2.perdeVida(2)
-            paradoP1.play()
+            idleP1.play()
             print jogador2.vida
             
         if jogador.rectSoco() != jogador2.rect and soco1: #SE NAO OCORRER COLISAO DO SOCO
@@ -332,9 +351,8 @@ def jogo():
                 jogador.perdeVida(1)
             else:
                 jogador.perdeVida(5)
-            verificaMorte()
             print jogador.vida
-            paradoP2.play()
+            idleP2.play()
             
         if jogador2.rectChute() != jogador.rect and chute2: #SE NAO OCORRER COLISAO DO CHUTE
             chute2 = False
@@ -344,22 +362,31 @@ def jogo():
                 jogador.perdeVida(1)
             else:
                 jogador.perdeVida(5)
-            verificaMorte()
-            paradoP2.play()
+            idleP2.play()
             print jogador.vida
             
         if jogador2.rectSoco() != jogador.rect and soco2: #SE NAO OCORRER COLISAO DO SOCO
             soco2 = False
-    
-        #=======================================================================
-        # VERIFICA MORTE
-        #=======================================================================
-        def verificaMorte():
-            if jogador.vida == 0:
-                print "jogador 2 wins!!"
-               
-            elif jogador2.vida == 0:
-                print "jogador 1 wins!!"
                
         pygame.display.update()
         mainClock.tick(30)
+        
+            
+        #=======================================================================
+        # VERIFICA MORTE
+        #=======================================================================
+        vitoria1 = pygame.image.load('imagens/vitoria1.png')
+        vitoria2 = pygame.image.load('imagens/vitoria2.png')
+        if jogador.vida <= 0:
+            time.sleep(2)
+            sair = True
+            tela.blit(vitoria1,(200,200))
+            
+        elif jogador2.vida <= 0:
+            time.sleep(2)
+            sair = True
+            tela.blit(vitoria2,(200,200))
+            
+    if sair:
+        menuPrincipal.MenuInicial()
+            
