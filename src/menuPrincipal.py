@@ -4,13 +4,25 @@ from sys import exit
 from time import sleep
 from FixTk import ver
 import animacao
-
 largura, altura = 800,600
 
 pygame.init()
 
 screen = pygame.display.set_mode((largura,altura),0,32)
 pygame.display.set_caption  ("Muttley Fight")
+
+#Musica
+
+pygame.mixer.init()
+pygame.mixer.music.load('Audios/MusicaMenuPrincipal.wav')
+pygame.mixer.music.play()
+pygame.mixer.music.set_volume(0.5)
+
+#Audios
+
+Cliquesom = pygame.mixer.Sound('Audios/mouse.wav')
+vitoriasom = pygame.mixer.Sound('Audios/vitoria.wav')
+vitoriasom.set_volume(0.2)
 
 fundo = pygame.image.load('imagens/fundos/inicio_Jogo.png')
 botaoVoltar = pygame.image.load("imagens/botoes/voltar.png").convert_alpha()
@@ -24,7 +36,7 @@ def verificaMouse(img_botao,pos_botao,pos_mouse):
         return True
     return False
 
-def Instrucoes():    
+def Instrucoes():
     
     while True:
     
@@ -40,6 +52,7 @@ def Instrucoes():
         if verificaMouse(botaoVoltar,(30,505),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 MenuInicial()
+                Cliquesom.play()
          
         pygame.display.flip()
 
@@ -65,6 +78,7 @@ def Creditos():
         if verificaMouse(botaoVoltar,posBotaoVoltar,xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 MenuInicial()
+                Cliquesom.play()
          
         pygame.display.update()
 
@@ -103,10 +117,12 @@ def Cenarios():
             if verificaMouse(botaoSeguinte,(705,280),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     cont += 1
+                    Cliquesom.play()
                     sleep(0.5)
             elif verificaMouse(botaoAnterior,(20,280),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     cont = 2
+                    Cliquesom.play()
                     sleep(0.5)
         else:
             if cont == 1:
@@ -114,36 +130,43 @@ def Cenarios():
                 if verificaMouse(botaoSeguinte,(705,280),xy) == True:
                     if event.type == MOUSEBUTTONDOWN and event.button == 1:
                         cont += 1
+                        Cliquesom.play()
                         sleep(0.5)
                 if verificaMouse(botaoAnterior,(20,280),xy) == True:
                     if event.type == MOUSEBUTTONDOWN and event.button == 1:
                         cont -= 1
+                        Cliquesom.play()
                         sleep(0.5)
             else:
                 if cont == 2:
                     screen.blit(cenario3,(112,151))
                     if verificaMouse(botaoSeguinte,(705,280),xy) == True:
                         if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                            cont = 0 
+                            cont = 0
+                            Cliquesom.play()
                             sleep(0.5)
                     if verificaMouse(botaoAnterior,(20,280),xy) == True:
                         if event.type == MOUSEBUTTONDOWN and event.button == 1:
                             cont -= 1
+                            Cliquesom.play()
                             sleep(0.5)
         
         if verificaMouse(botaoVoltar,(30,505),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 NovoJogo()
+                Cliquesom.play()
                 sleep(0.1)
         if verificaMouse(botaoIniciar, (651,525),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
                 if cont == 0:
                     animacao.fundo = pygame.image.load('imagens/fundos/mesa2.jpg').convert_alpha()
                 elif cont == 1:
                     animacao.fundo = pygame.image.load('imagens/fundos/mesa1.jpg').convert_alpha()
                 elif cont == 2:
                     animacao.fundo = pygame.image.load('imagens/fundos/fundoChesf.jpg').convert_alpha()
-                
+
+                pygame.mixer.music.stop()
                 animacao.jogo()
         pygame.display.flip()
 
@@ -215,54 +238,63 @@ def NovoJogo():
     
             if verificaMouse(janelaVermelha, janelas[1], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Matheus'
                     cont += 1
                     sleep(0.1)
                     
             if verificaMouse(janelaVermelha, janelas[2], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Lucas'
                     cont += 1
                     sleep(0.1)
                     
             if verificaMouse(janelaVermelha, janelas[3], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Muttley'
                     cont += 1
                     sleep(0.1)
                     
             if verificaMouse(janelaVermelha, janelas[4], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Vitor'
                     cont += 1
                     sleep(0.1)
                     
             if verificaMouse(janelaVermelha, janelas[5], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Francois'
                     cont += 1
                     sleep(0.1)
                     
             if verificaMouse(janelaVermelha, janelas[6], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Alan'
                     cont += 1
                     sleep(0.1)
                     
             if verificaMouse(janelaVermelha, janelas[7], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Igor'
                     cont += 1
                     sleep(0.1)
                     
             if verificaMouse(janelaVermelha, janelas[8], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player1 = 'Tulio'
                     cont += 1
                     sleep(0.1)
         
             if verificaMouse(botaoVoltar,(30,505),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     MenuInicial()
        
         elif cont == 1:
@@ -275,46 +307,55 @@ def NovoJogo():
             
             if verificaMouse(janelaVermelha, janelas[1], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Matheus'
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[2], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Lucas'
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[3], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Muttley'
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[4], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Vitor'
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[5], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Francois'
                     Cenarios()
 
             if verificaMouse(janelaVermelha, janelas[6], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Alan'
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[7], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Igor'
                     Cenarios()
                 
             if verificaMouse(janelaVermelha, janelas[8], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     animacao.player2 = 'Tulio'
                     Cenarios()
                     
             if verificaMouse(botaoVoltar,(30,505),xy) == True:
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                    Cliquesom.play()
                     cont -= 1
                     sleep(0.1)
                     
@@ -350,18 +391,22 @@ def MenuInicial():
         
         if verificaMouse(botaoNovoJogo,posBotaoNovoJogo,xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
                 NovoJogo()
                 
         elif verificaMouse(botaoInstrucoes,posBotaoInstrucoes,xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
                 Instrucoes()
                 
         elif verificaMouse(botaoCreditos,posBotaoCreditos,xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
                 Creditos()
                 
         elif verificaMouse(botaoSair,posBotaoSair,xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
                 exit()
                   
         pygame.display.flip()
@@ -370,49 +415,8 @@ def telaGanhou(player):
     
     vitoria1 = pygame.image.load('imagens/vitoria1.jpg').convert()
     vitoria2 = pygame.image.load('imagens/vitoria2.jpg').convert()
-        
     botaoNovoJogo = pygame.image.load("imagens/Botoes/novojogo.png").convert_alpha()
     botaoSair = pygame.image.load("imagens/Botoes/sairNovo.png").convert_alpha()
-    
-    posBotaoNovoJogo = (100,450)
-    posBotaoSair = (450,450)
-    
-    while True:
-        
-        xy = pygame.mouse.get_pos() #retorna a posicao do mouse
-        
-        350,300
-        
-        if player == 'player1':
-            
-            screen.blit(vitoria2,(0,0))
-            
-            verificaFoto(player)
-            
-        if player == 'player2':
-            
-            screen.blit(vitoria1,(0,0))
-            
-            verificaFoto(player)
-        
-        screen.blit(botaoNovoJogo,posBotaoNovoJogo)
-        screen.blit(botaoSair,posBotaoSair)   
-        
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                exit()
-        
-        if verificaMouse(botaoNovoJogo,posBotaoNovoJogo,xy) == True:
-            if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                NovoJogo()
-                
-        elif verificaMouse(botaoSair,posBotaoSair,xy) == True:
-            if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                exit()
-                
-        pygame.display.flip()
-
-def verificaFoto(player):
     
     matheus = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
     igor = pygame.image.load('imagens/imagensPersonagens/igor.png')
@@ -423,13 +427,54 @@ def verificaFoto(player):
     francois = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
     pastor = pygame.image.load('imagens/imagensPersonagens/pastor.jpg')
     
-    if player == 'player1':
-        if player == 'Matheus':
-            screen.blit(matheus,(350,300))
-        elif animacao.player1 == 'Vitor':
-            screen.blit(pastor,(350,300))
-    elif player == 'player2':
-        if player == 'Matheus':
-            screen.blit(matheus,(350,300))
-        elif animacao.player1 == 'Vitor':
-            screen.blit(pastor,(350,300))
+    posBotaoNovoJogo = (100,450)
+    posBotaoSair = (450,450)
+    
+    tocando = True
+    
+    while True:
+        xy = pygame.mouse.get_pos() #retorna a posicao do mouse
+
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                exit()
+        
+        if player == 'player1':
+            screen.blit(vitoria1,(0,0))
+            if tocando:
+                vitoriasom.play()
+                tocando = False
+            screen.blit(botaoNovoJogo,posBotaoNovoJogo)
+            screen.blit(botaoSair,posBotaoSair)
+        
+            if animacao.player1 == 'Matheus':
+                screen.blit(matheus,(370,300))
+            elif animacao.player1 == 'Vitor':
+                screen.blit(pastor,(350,300))
+                
+        elif player == 'player2':
+            screen.blit(vitoria2,(0,0))
+            vitoriasom.fadeout(4)#4.12
+
+
+                         
+            screen.blit(botaoNovoJogo,posBotaoNovoJogo)
+            screen.blit(botaoSair,posBotaoSair)
+            
+            if animacao.player2 == 'Matheus':
+                screen.blit(matheus,(350,300))
+            elif animacao.player2 == 'Vitor':
+                screen.blit(pastor,(350,300))
+   
+        if verificaMouse(botaoNovoJogo,(100,450),xy) == True:
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
+                MenuInicial()
+                
+        elif verificaMouse(botaoSair,posBotaoSair,xy) == True:
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
+                exit()
+
+
+        pygame.display.flip()
