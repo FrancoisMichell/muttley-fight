@@ -50,9 +50,8 @@ def Instrucoes():
         xy = pygame.mouse.get_pos() #Recupera a posicao do mouse
 
         screen.blit(fundo_instrucoes,(0,0))
-        screen.blit(botaoVoltar,(40,523))
         
-        if verificaMouse(botaoVoltar,(30,505),xy) == True:
+        if verificaMouse(botaoVoltar,(46,531),xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 MenuInicial()
                 Cliquesom.play()
