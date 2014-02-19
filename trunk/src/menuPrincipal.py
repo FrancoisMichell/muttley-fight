@@ -4,6 +4,7 @@ from sys import exit
 from time import sleep
 from FixTk import ver
 import animacao
+
 largura, altura = 800,600
 
 pygame.init()
@@ -36,7 +37,9 @@ def verificaMouse(img_botao,pos_botao,pos_mouse):
         return True
     return False
 
-def Instrucoes():
+def Instrucoes(): 
+    
+    fundo_instrucoes = pygame.image.load("imagens/fundos/instrucoes.png")   
     
     while True:
     
@@ -46,7 +49,7 @@ def Instrucoes():
     
         xy = pygame.mouse.get_pos() #Recupera a posicao do mouse
 
-        screen.blit(fundo,(0,0))
+        screen.blit(fundo_instrucoes,(0,0))
         screen.blit(botaoVoltar,(40,523))
         
         if verificaMouse(botaoVoltar,(30,505),xy) == True:
@@ -415,8 +418,56 @@ def telaGanhou(player):
     
     vitoria1 = pygame.image.load('imagens/vitoria1.jpg').convert()
     vitoria2 = pygame.image.load('imagens/vitoria2.jpg').convert()
+        
     botaoNovoJogo = pygame.image.load("imagens/Botoes/novojogo.png").convert_alpha()
     botaoSair = pygame.image.load("imagens/Botoes/sairNovo.png").convert_alpha()
+    
+    posBotaoNovoJogo = (100,450)
+    posBotaoSair = (450,450)
+    
+    tocando = True
+    
+    while True:
+        
+        xy = pygame.mouse.get_pos() #retorna a posicao do mouse
+        
+        if player == 'player1':
+            
+            screen.blit(vitoria1,(0,0))
+            verificaFoto(player)
+            if tocando:
+                vitoriasom.play()
+                tocando = False
+            
+            
+        if player == 'player2':
+            
+            screen.blit(vitoria2,(0,0))
+            verificaFoto(player)
+            if tocando: 
+                vitoriasom.play()
+                tocando = False
+        
+        screen.blit(botaoNovoJogo,posBotaoNovoJogo)
+        screen.blit(botaoSair,posBotaoSair)   
+        
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                exit()
+        
+        if verificaMouse(botaoNovoJogo,posBotaoNovoJogo,xy) == True:
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
+                NovoJogo()
+                
+        elif verificaMouse(botaoSair,posBotaoSair,xy) == True:
+            if event.type == MOUSEBUTTONDOWN and event.button == 1:
+                Cliquesom.play()
+                exit()
+                
+        pygame.display.flip()
+
+def verificaFoto(player):
     
     matheus = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
     igor = pygame.image.load('imagens/imagensPersonagens/igor.png')
@@ -427,54 +478,13 @@ def telaGanhou(player):
     francois = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
     pastor = pygame.image.load('imagens/imagensPersonagens/pastor.jpg')
     
-    posBotaoNovoJogo = (100,450)
-    posBotaoSair = (450,450)
-    
-    tocando = True
-    
-    while True:
-        xy = pygame.mouse.get_pos() #retorna a posicao do mouse
-
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                exit()
-        
-        if player == 'player1':
-            screen.blit(vitoria1,(0,0))
-            if tocando:
-                vitoriasom.play()
-                tocando = False
-            screen.blit(botaoNovoJogo,posBotaoNovoJogo)
-            screen.blit(botaoSair,posBotaoSair)
-        
-            if animacao.player1 == 'Matheus':
-                screen.blit(matheus,(370,300))
-            elif animacao.player1 == 'Vitor':
-                screen.blit(pastor,(350,300))
-                
-        elif player == 'player2':
-            screen.blit(vitoria2,(0,0))
-            vitoriasom.fadeout(4)#4.12
-
-
-                         
-            screen.blit(botaoNovoJogo,posBotaoNovoJogo)
-            screen.blit(botaoSair,posBotaoSair)
-            
-            if animacao.player2 == 'Matheus':
-                screen.blit(matheus,(350,300))
-            elif animacao.player2 == 'Vitor':
-                screen.blit(pastor,(350,300))
-   
-        if verificaMouse(botaoNovoJogo,(100,450),xy) == True:
-            if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                Cliquesom.play()
-                MenuInicial()
-                
-        elif verificaMouse(botaoSair,posBotaoSair,xy) == True:
-            if event.type == MOUSEBUTTONDOWN and event.button == 1:
-                Cliquesom.play()
-                exit()
-
-
-        pygame.display.flip()
+    if player == 'player1':
+        if player == 'Matheus':
+            screen.blit(matheus,(350,300))
+        elif animacao.player1 == 'Vitor':
+            screen.blit(pastor,(350,300))
+    elif player == 'player2':
+        if player == 'Matheus':
+            screen.blit(matheus,(350,300))
+        elif animacao.player1 == 'Vitor':
+            screen.blit(pastor,(350,300))
