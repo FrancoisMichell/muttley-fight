@@ -7,6 +7,7 @@ import pyganim
 import classe_personagem
 from time import sleep
 import menuPrincipal
+from multiprocessing import Event
 
 player1 = ""
 player2 = ""
@@ -183,6 +184,10 @@ def jogo():
         #BLITANDO OS ELEMENTOS NO BUFF
     
         tela.blit(fundo, (0,0))
+            
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                exit()
         
         #=======================================================================
         # BARRA DE HP
@@ -236,7 +241,6 @@ def jogo():
                 # PLAYER 1
                 if event.key == K_c and chuteP1._propGetElapsed() == 0 and socoP1._propGetElapsed() == 0:
                     chute1 = True
-                    
                     idleP1.stop()
                     chuteP1.play()
                     jogador.rectChute() #RECUPERA A AREA DE COLISAO DO PERSONAGEM
@@ -244,7 +248,6 @@ def jogo():
                 
                 if event.key == K_v and socoP1._propGetElapsed() == 0 and chuteP1._propGetElapsed() == 0:
                     soco1 = True
-                    
                     idleP1.stop()
                     socoP1.play()
                     idleP1.play()

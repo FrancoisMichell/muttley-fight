@@ -27,7 +27,7 @@ class Personagem:
             self.rect = pygame.Rect(self.pos_x, self.pos_y, 100, 200)
             
         elif self.nome == 'Alan':
-            self.rect = pygame.Rect(self.pos_x, self.pos_y, 35, 100)
+            self.rect = pygame.Rect(self.pos_x, self.pos_y, 114, 200)
             
         elif self.nome == 'Lucas':
             self.rect = pygame.Rect(self.pos_x, self.pos_y, 103,230)
@@ -57,7 +57,7 @@ class Personagem:
             return chute
         
         if self.nome == 'Alan':
-            chute = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            chute = pygame.Rect(self.pos_x, self.pos_y, 172,200)
             return chute
         
         if self.nome == 'Lucas':
@@ -91,7 +91,7 @@ class Personagem:
             return soco
         
         if self.nome == 'Alan':
-            soco = pygame.Rect(self.pos_x, self.pos_y, 160,200)
+            soco = pygame.Rect(self.pos_x, self.pos_y, 141,200)
             return soco
         
         if self.nome == 'Lucas':

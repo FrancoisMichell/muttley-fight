@@ -1,3 +1,0 @@
-import animacao
-
-animacao.jogo()

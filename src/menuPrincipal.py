@@ -161,9 +161,9 @@ def Cenarios():
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 Cliquesom.play()
                 if cont == 0:
-                    animacao.fundo = pygame.image.load('imagens/fundos/mesa2.jpg').convert_alpha()
+                    animacao.fundo = pygame.image.load('imagens/fundos/fundo1.jpg').convert_alpha()
                 elif cont == 1:
-                    animacao.fundo = pygame.image.load('imagens/fundos/mesa1.jpg').convert_alpha()
+                    animacao.fundo = pygame.image.load('imagens/fundos/fundo2.jpg').convert_alpha()
                 elif cont == 2:
                     animacao.fundo = pygame.image.load('imagens/fundos/fundoChesf.jpg').convert_alpha()
 
@@ -172,8 +172,6 @@ def Cenarios():
         pygame.display.flip()
 
 def NovoJogo():
-    
-    botaoAvancar = pygame.image.load("imagens/Botoes/avancar.png").convert_alpha()
     
     jogador1 = pygame.image.load("imagens/fundos/jogador1.png").convert_alpha()
     jogador2 = pygame.image.load("imagens/fundos/jogador2.png").convert_alpha()
@@ -311,7 +309,6 @@ def NovoJogo():
             
             screen.blit(jogador2,(0,0))
             screen.blit(botaoVoltar,(30,505))
-            screen.blit(botaoAvancar,(570,505))
             quadroVermelho()
             imagensPersonagens()
             
@@ -496,7 +493,7 @@ def verificaFoto(player):
     lucas = pygame.image.load('imagens/imagensPersonagens/lucas.png')
     tulio = pygame.image.load('imagens/imagensPersonagens/tulio.png')
     alan = pygame.image.load('imagens/imagensPersonagens/alan.png')
-    francois = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
+    francois = pygame.image.load('imagens/imagensPersonagens/francois.png')
     pastor = pygame.image.load('imagens/imagensPersonagens/pastor.jpg')
     
     if player == 'player1':
