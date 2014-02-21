@@ -2,7 +2,6 @@ import pygame
 from pygame.locals import *
 from sys import exit
 from time import sleep
-from FixTk import ver
 import animacao
 
 largura, altura = 800,600
@@ -15,14 +14,14 @@ pygame.display.set_caption  ("Muttley Fight")
 #Musica
 
 pygame.mixer.init()
-pygame.mixer.music.load('Audios/MusicaMenuPrincipal.wav')
+pygame.mixer.music.load('Audios/SonsGerais/MusicaMenuPrincipal.wav')
 pygame.mixer.music.play()
 pygame.mixer.music.set_volume(0.5)
 
 #Audios
 
 Cliquesom = pygame.mixer.Sound('Audios/mouse.wav')
-vitoriasom = pygame.mixer.Sound('Audios/vitoria.wav')
+vitoriasom = pygame.mixer.Sound('Audios/SonsGerais/Vitoria.wav')
 vitoriasom.set_volume(0.2)
 
 fundo = pygame.image.load('imagens/fundos/inicio_Jogo.png')
@@ -113,7 +112,7 @@ def Cenarios():
         screen.blit(botaoVoltar, posBotaoVoltar)
         screen.blit(botaoSeguinte,(705,280))
         screen.blit(botaoAnterior,(20,280))
-            
+ 
         if cont == 0:
             screen.blit(cenario1,(112,151))
             if verificaMouse(botaoSeguinte,(705,280),xy) == True:
@@ -180,7 +179,6 @@ def NovoJogo():
     jogador2 = pygame.image.load("imagens/fundos/jogador2.png").convert_alpha()
     
     janelaVermelha = pygame.image.load('imagens/molduraVermelha.png').convert_alpha()
-    janelaBranca = pygame.image.load('imagens/molduraAmarela.png').convert_alpha()
     
     matheus = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
     igor = pygame.image.load('imagens/imagensPersonagens/igor.png')
@@ -188,7 +186,7 @@ def NovoJogo():
     lucas = pygame.image.load('imagens/imagensPersonagens/lucas.png')
     tulio = pygame.image.load('imagens/imagensPersonagens/tulio.png')
     alan = pygame.image.load('imagens/imagensPersonagens/alan.png')
-    francois = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
+    francois = pygame.image.load('imagens/imagensPersonagens/francois.png')
     pastor = pygame.image.load('imagens/imagensPersonagens/pastor.jpg')
     
     cont = 0
@@ -197,8 +195,7 @@ def NovoJogo():
     linha = [200,350]
     
     coordenadas = []
-    selecionado = False
-             
+
     while True:
     
         for event in pygame.event.get():
@@ -231,7 +228,10 @@ def NovoJogo():
                     coordenadas.append((i,j))
                     janelas[k] = (i,j)
                     
-        
+        def somSelecionado(personagem):
+            selecionado = pygame.mixer.Sound("Audios/%saudio/selecionado.wav"%(personagem))
+            selecionado.play()
+            
         if cont == 0:
             screen.blit(jogador1,(0,0))
             screen.blit(botaoVoltar,(30,505))
@@ -242,6 +242,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Matheus'
+                    somSelecionado("Matheus")
                     cont += 1
                     sleep(0.1)
                     
@@ -249,6 +250,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Lucas'
+                    somSelecionado("Lucas")
                     cont += 1
                     sleep(0.1)
                     
@@ -256,6 +258,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Muttley'
+                    somSelecionado("Muttley")
                     cont += 1
                     sleep(0.1)
                     
@@ -263,6 +266,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Vitor'
+                    somSelecionado("Vitor")
                     cont += 1
                     sleep(0.1)
                     
@@ -270,6 +274,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Francois'
+                    somSelecionado("Francois")
                     cont += 1
                     sleep(0.1)
                     
@@ -277,6 +282,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Alan'
+                    somSelecionado("Alan")
                     cont += 1
                     sleep(0.1)
                     
@@ -284,6 +290,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Igor'
+                    somSelecionado("Igor")
                     cont += 1
                     sleep(0.1)
                     
@@ -291,6 +298,7 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player1 = 'Tulio'
+                    somSelecionado("Tulio")
                     cont += 1
                     sleep(0.1)
         
@@ -311,48 +319,56 @@ def NovoJogo():
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Matheus'
+                    somSelecionado("Matheus")
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[2], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Lucas'
+                    somSelecionado("Lucas")
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[3], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Muttley'
+                    somSelecionado("Muttley")
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[4], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Vitor'
+                    somSelecionado("Vitor")
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[5], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Francois'
+                    somSelecionado("Francois")
                     Cenarios()
 
             if verificaMouse(janelaVermelha, janelas[6], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Alan'
+                    somSelecionado("Alan")
                     Cenarios()
                     
             if verificaMouse(janelaVermelha, janelas[7], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Igor'
+                    somSelecionado("Igor")
                     Cenarios()
                 
             if verificaMouse(janelaVermelha, janelas[8], xy):
                 if event.type == MOUSEBUTTONDOWN and event.button == 1:
                     Cliquesom.play()
                     animacao.player2 = 'Tulio'
+                    somSelecionado("Tulio")
                     Cenarios()
                     
             if verificaMouse(botaoVoltar,(30,505),xy) == True:
@@ -415,8 +431,8 @@ def MenuInicial():
         
 def telaGanhou(player):
     
-    vitoria1 = pygame.image.load('imagens/vitoria1.jpg').convert()
-    vitoria2 = pygame.image.load('imagens/vitoria2.jpg').convert()
+    vitoriaP1 = pygame.image.load('imagens/vitoria1.jpg').convert()
+    vitoriaP2 = pygame.image.load('imagens/vitoria2.jpg').convert()
         
     botaoNovoJogo = pygame.image.load("imagens/Botoes/novojogo.png").convert_alpha()
     botaoSair = pygame.image.load("imagens/Botoes/sairNovo.png").convert_alpha()
@@ -426,24 +442,28 @@ def telaGanhou(player):
     
     tocando = True
     
+    
     while True:
         
         xy = pygame.mouse.get_pos() #retorna a posicao do mouse
         
         if player == 'player1':
+            venceu = pygame.mixer.Sound("Audios/%saudio/venceu.wav"%(animacao.player1))
             
-            screen.blit(vitoria1,(0,0))
-            verificaFoto(player)
+            screen.blit(vitoriaP1,(0,0))
+            verificaFoto("player1")
             if tocando:
+                venceu.play()
                 vitoriasom.play()
                 tocando = False
             
             
         if player == 'player2':
-            
-            screen.blit(vitoria2,(0,0))
-            verificaFoto(player)
+            venceu = pygame.mixer.Sound("Audios/%saudio/venceu.wav"%(animacao.player2))
+            screen.blit(vitoriaP2,(0,0))
+            verificaFoto("player2")
             if tocando: 
+                venceu.play()
                 vitoriasom.play()
                 tocando = False
         
@@ -457,6 +477,7 @@ def telaGanhou(player):
         if verificaMouse(botaoNovoJogo,posBotaoNovoJogo,xy) == True:
             if event.type == MOUSEBUTTONDOWN and event.button == 1:
                 Cliquesom.play()
+                pygame.mixer.music.play()
                 NovoJogo()
                 
         elif verificaMouse(botaoSair,posBotaoSair,xy) == True:
@@ -468,6 +489,7 @@ def telaGanhou(player):
 
 def verificaFoto(player):
     
+    
     matheus = pygame.image.load('imagens/imagensPersonagens/matheus.jpg')
     igor = pygame.image.load('imagens/imagensPersonagens/igor.png')
     muttley = pygame.image.load('imagens/imagensPersonagens/muttley.png')
@@ -478,12 +500,40 @@ def verificaFoto(player):
     pastor = pygame.image.load('imagens/imagensPersonagens/pastor.jpg')
     
     if player == 'player1':
-        if player == 'Matheus':
+                    
+        if animacao.player1 == 'Matheus':
             screen.blit(matheus,(350,300))
         elif animacao.player1 == 'Vitor':
             screen.blit(pastor,(350,300))
+        elif animacao.player1 == 'Igor':
+            screen.blit(igor,(350,300))
+        elif animacao.player1 == 'Muttley':
+            screen.blit(muttley,(350,300))
+        elif animacao.player1 == 'Lucas':
+            screen.blit(lucas,(350,300))
+        elif animacao.player1 == 'Tulio':
+            screen.blit(tulio,(350,300))
+        elif animacao.player1 == 'Alan':
+            screen.blit(alan,(350,300))
+        elif animacao.player1 == 'Francois':
+            screen.blit(francois,(350,300))
+            
     elif player == 'player2':
-        if player == 'Matheus':
+
+        if animacao.player2 == 'Matheus':
             screen.blit(matheus,(350,300))
-        elif animacao.player1 == 'Vitor':
+        elif animacao.player2 == 'Vitor':
             screen.blit(pastor,(350,300))
+        elif animacao.player2 == 'Igor':
+            screen.blit(igor,(350,300))
+        elif animacao.player2 == 'Muttley':
+            screen.blit(muttley,(350,300))
+        elif animacao.player2 == 'Lucas':
+            screen.blit(lucas,(350,300))
+        elif animacao.player2 == 'Tulio':
+            screen.blit(tulio,(350,300))
+        elif animacao.player2 == 'Alan':
+            screen.blit(alan,(350,300))
+        elif animacao.player2 == 'Francois':
+            screen.blit(francois,(350,300))
+        
