@@ -368,11 +368,11 @@ def jogo():
         
         if jogador.rectChute().colliderect(jogador2.rect) and chute1: #VERIFICA COLISAO DO CHUTE E RETIRA 2 PONTOS DE VIDA DO PERSONAGEM 2
             if defesa2:
-                jogador2.perdeVida(1)
+                jogador2.perdeVida(3)
                 DefesaSom.play()
             else:
                 levando2.play()
-                jogador2.perdeVida(2)
+                jogador2.perdeVida(8)
                 DanoSom.play()
             idleP1.play()
             
@@ -382,11 +382,11 @@ def jogo():
         
         if jogador.rectSoco().colliderect(jogador2.rect) and soco1: #VERIFICA COLISAO DO SOCO E RETIRA 2 PONTOS DE VIDA DO PERSONAGEM 2
             if defesa2:
-                jogador2.perdeVida(1)
+                jogador2.perdeVida(2)
                 DefesaSom.play()
             else:
                 levando2.play()
-                jogador2.perdeVida(50)
+                jogador2.perdeVida(4)
                 DanoSom.play()
             idleP1.play()
             
@@ -398,11 +398,11 @@ def jogo():
         
         if jogador2.rectChute().colliderect(jogador.rect) and chute2: #VERIFICA COLISAO DO CHUTE E RETIRA 2 PONTOS DE VIDA DO PERSONAGEM 2
             if defesa1:
-                jogador.perdeVida(1)
+                jogador.perdeVida(3)
                 DefesaSom.play()
             else:
                 levando1.play()
-                jogador.perdeVida(5)
+                jogador.perdeVida(8)
                 DanoSom.play()
             idleP2.play()
             
@@ -412,11 +412,11 @@ def jogo():
         
         if jogador2.rectSoco().colliderect(jogador.rect) and soco2: #VERIFICA COLISAO DO SOCO E RETIRA 2 PONTOS DE VIDA DO PERSONAGEM 2
             if defesa1:
-                jogador.perdeVida(1)
+                jogador.perdeVida(2)
                 DefesaSom.play()
             else:
                 levando1.play()
-                jogador.perdeVida(5)
+                jogador.perdeVida(4)
                 DanoSom.play()
             idleP2.play()
             
