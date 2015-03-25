@@ -1,0 +1,1 @@
+Jogo de luta, 2D, o qual utilizaremos como projeto na cadeira de Laboratorio de Programação.
